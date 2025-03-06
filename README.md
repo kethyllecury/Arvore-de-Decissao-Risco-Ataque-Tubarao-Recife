@@ -26,6 +26,12 @@ O modelo é alimentado por dados ambientais, transformados conforme as regras de
   - **0** → Baixa quantidade de presas na região
   - **1** → Alta quantidade de presas na região
 
+  ## Previsão de Risco
+O modelo classifica o risco de ataque em duas categorias:
+
+- **Alto**: Quando as condições são mais favoráveis a ataques de tubarões.
+- **Baixo**: Quando as condições são mais seguras e não indicam alto risco de ataques.
+
 ## Exemplo de Dados Usados no Modelo:
 | Temperatura da Água | Hora do Dia | Profundidade (m) | Distância da Costa (m) | Turbidez (NTU) | Atividade das Presas (cardumes/km²) | Risco |
 |---------------------|-------------|-------------------|------------------------|----------------|-------------------------------------|-------|
