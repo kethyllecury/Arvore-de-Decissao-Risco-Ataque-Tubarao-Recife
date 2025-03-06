@@ -61,10 +61,5 @@ O modelo foi avaliado usando a métrica de **acurácia**, **precisão**, **recal
 - **Scikit-learn**: Biblioteca usada para a criação da árvore de decisão e as métricas de avaliação.
 - **Matplotlib**: Usado para visualizar a árvore de decisão.
 
-## Possíveis Melhorias:
-- **Ajustes no Modelo**: O modelo pode ser melhorado ajustando os parâmetros da árvore de decisão, como profundidade máxima e número mínimo de amostras por folha.
-- **Dados Adicionais**: Incluir mais variáveis, como o histórico de ataques de tubarão e o comportamento do mar (ondas, correnteza), pode melhorar a precisão do modelo.
-- **Balanceamento de Dados**: Técnicas como SMOTE podem ser aplicadas para balancear melhor as classes **Alto** e **Baixo**, melhorando o recall da classe "Baixo".
-
 ## Conclusão
 Este modelo fornece uma ferramenta útil para prever a segurança nas praias de Recife, ajudando a reduzir os riscos de ataques de tubarão. Embora o modelo apresente bons resultados, ele pode ser continuamente melhorado com a adição de mais dados e ajustes no processo de treinamento.
