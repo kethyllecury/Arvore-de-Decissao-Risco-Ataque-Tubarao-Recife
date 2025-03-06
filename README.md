@@ -4,26 +4,32 @@
 Este modelo utiliza uma árvore de decisão para prever as chances de um ataque de tubarão em diversas praias de Recife, com base em uma série de fatores ambientais. O objetivo é fornecer uma previsão do risco para banhistas, permitindo que autoridades locais e cidadãos tomem decisões mais informadas sobre segurança nas praias.
 
 ## Características dos Dados
-O modelo é alimentado por dados ambientais, como:
+O modelo é alimentado por dados ambientais, transformados conforme as regras descritas abaixo:
 
-- **Temperatura da água (°C)**: Indica a temperatura da água do mar. Tubarões têm maior atividade em águas mais quentes.
-- **Hora do dia**: A hora em que o banhista está na praia. As chances de ataque podem ser maiores à noite.
-- **Profundidade da água (m)**: A profundidade onde o banhista está. Águas rasas podem ser mais perigosas devido à maior proximidade com os tubarões.
-- **Distância da costa (m)**: A distância entre o banhista e a costa. Quanto mais perto da costa, maior a chance de interação com tubarões.
-- **Turbidez da água (NTU)**: A clareza da água. Águas turvas dificultam a visualização, aumentando o risco de ataques acidentais.
-- **Atividade das presas (cardumes/km²)**: A quantidade de presas na área. Uma maior presença de cardumes pode atrair tubarões para a região.
-
-## Previsão de Risco
-O modelo classifica o risco de ataque em duas categorias:
-
-- **Alto**: Quando as condições são mais favoráveis a ataques de tubarões.
-- **Baixo**: Quando as condições são mais seguras e não indicam alto risco de ataques.
+- **Temperatura da água (°C)**:
+  - **0** → Temperatura abaixo ou igual à mediana
+  - **1** → Temperatura acima da mediana
+- **Hora do dia**:
+  - **0** → Manhã
+  - **1** → Tarde
+  - **2** → Noite
+- **Profundidade da água (m)**:
+  - **0** → Profundidade abaixo ou igual à mediana
+  - **1** → Profundidade acima da mediana
+- **Distância da costa (m)**:
+  - **0** → Distância da costa abaixo ou igual à mediana
+  - **1** → Distância da costa acima da mediana
+- **Turbidez da água (NTU)**:
+  - **0** → Turbidez abaixo ou igual à mediana
+  - **1** → Turbidez acima da mediana
+- **Atividade das presas (cardumes/km²)**:
+  - **0** → Baixa quantidade de presas na região
+  - **1** → Alta quantidade de presas na região
 
 ## Exemplo de Dados Usados no Modelo:
-| Temperatura da Água (°C) | Hora do Dia | Profundidade (m) | Distância da Costa (m) | Turbidez (NTU) | Atividade das Presas (cardumes/km²) | Risco |
-|--------------------------|-------------|------------------|------------------------|----------------|-------------------------------------|-------|
-| 28                       | Noite       | 0 (Raso)         | 0 (Perto)              | 1 (Turva)      | 1 (Alta)                           | Alto  |
-| 24                       | Tarde       | 1 (Profunda)     | 50 (Distante)          | 0 (Clara)      | 0 (Baixa)                          | Baixo |
+| Temperatura da Água | Hora do Dia | Profundidade (m) | Distância da Costa (m) | Turbidez (NTU) | Atividade das Presas (cardumes/km²) | Risco |
+|---------------------|-------------|-------------------|------------------------|----------------|-------------------------------------|-------|
+| 1 (quente)          | 2 (noite)   | 0 (raso)          | 0 (perto)              | 1 (turva)      | 1 (muitas presas)    | ALTO  |
 
 ## Resultados do Modelo:
 - **Acurácia**: 90%
